@@ -1,10 +1,6 @@
 
 class Solution {
 public:
-    void printV(vector<int>& v){
-        for(int i: v)   cout<<i<<" ";
-        cout<<endl;
-    }
     vector<string> topKFrequent(vector<string>& words, int k) {
         unordered_map<int, set<string>> counter;
         vector<int> counts;
