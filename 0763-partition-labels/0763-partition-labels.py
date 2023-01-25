@@ -3,8 +3,7 @@ class Solution:
         rightMost = {}
         
         for i in range(1, len(s)+1):
-            if i > rightMost.get(s[i-1], 0):  
-                rightMost[s[i-1]] = i
+            rightMost[s[i-1]] = i
                 
         ans = []       
         j, max_i, count = 1, 1, 0
