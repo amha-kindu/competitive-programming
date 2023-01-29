@@ -6,7 +6,6 @@ for _ in range(n):
     nums = list(map(int, input().split()))
     nums.sort()
 
-    left = 0
     remove_cnt = 0
     for i in range(nums_len-1):
         if abs(nums[i]-nums[i+1])<=1:
