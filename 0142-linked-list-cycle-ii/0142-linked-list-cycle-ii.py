@@ -6,21 +6,21 @@
 
 class Solution:
     def detectCycle(self, head: Optional[ListNode]) -> Optional[ListNode]:
-        inter = None
+        intersection = None
         slow = head
-        fast = head.next if head else None
+        fast = head
         while fast and fast.next:
-            if hash(fast) == hash(slow):
-                inter = slow
-                break
             slow = slow.next
             fast = fast.next.next
+            if fast == slow:
+                intersection = slow
+                break
         
-        if not inter:
+        if not intersection:
             return
         
-        ptr, entrance = head, inter.next
-        while hash(ptr) != hash(entrance):
+        ptr, entrance = head, intersection
+        while ptr != entrance:
             entrance = entrance.next
             ptr = ptr.next
         return entrance
