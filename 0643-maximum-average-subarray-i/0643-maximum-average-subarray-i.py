@@ -4,10 +4,9 @@ class Solution:
         wn_left, wn_right = 0, 0
         
         while wn_right <= len(nums):
-            if wn_right - wn_left + 1 < k:
+            while wn_right - wn_left + 1 < k:
                 wn_right += 1
                 wn_sum += nums[wn_right]
-                continue
 
             max_sum = max(max_sum, wn_sum)
             
