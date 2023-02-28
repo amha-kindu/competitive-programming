@@ -1,26 +1,22 @@
 class Solution:
     def decodeString(self, s: str) -> str:
-        l=len(s)
-        stack=[]
-        substr=[]
-        for i in range(l):
-            if s[i]=='[':
-                stack.append(i)
-            elif s[i]==']':
-                j=stack.pop()
-                while len(substr)>0 and j<substr[-1][1]:
-                    substr.pop()
-                n=''
-                m=1
-                while s[j-m].isdigit():
-                    n=s[j-m]+n
-                    m+=1
-                n=int(n)
-                substr.append((j,i,n,j-m+1))
-        while(len(substr)>0):
-            i,j,n,m=substr.pop()
-            processed=n*self.decodeString(s[i+1:j])
-            s=s[:m]+processed+s[j+1:]
-        return s
-                 
-        
+        if len(s) == 1 and s[0].isdigit():
+            return ''
+        stack = []
+        for char in s:
+            if char != ']':
+                stack.append(char)
+            else:
+                substr = ''
+                while stack[-1]!='[':
+                    substr = stack.pop()+substr
+                stack.pop()
+
+                num = ''
+                while stack and stack[-1].isdigit():
+                    num = stack.pop() + num
+
+                stack.append(int(num)*substr)
+
+        return ''.join(stack)
+                
