@@ -5,6 +5,7 @@ class Solution:
             if len(token)==1 and ord(token)<48:
                 op1=operands.pop()
                 op2=operands.pop()
+                
                 if token == '*':
                     result = op1*op2
                 elif token == '/':
