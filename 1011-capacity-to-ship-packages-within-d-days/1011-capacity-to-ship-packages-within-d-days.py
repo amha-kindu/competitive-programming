@@ -1,7 +1,7 @@
 class Solution:
     def shipWithinDays(self, weights: List[int], days: int) -> int:
         n = len(weights)
-        low, high = 1, sum(weights)
+        low, high = max(weights), sum(weights)
         min_weight = low
         while high >= low:
             mid = ( low + high ) // 2
