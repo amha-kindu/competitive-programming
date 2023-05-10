@@ -14,11 +14,12 @@ class Solution:
             if i not in visited and len(visited) < n:
                 frontier = [i]
                 while frontier:
-                    node = frontier.pop()
-                    visited.add(node)
-                    for neighbor in graph[node]:
-                        if neighbor not in visited:
-                            frontier.append(neighbor)
+                    for _ in range(len(frontier)):
+                        node = frontier.pop()
+                        for neighbor in graph[node]:
+                            if neighbor not in visited:
+                                frontier.append(neighbor)
+                                visited.add(neighbor)
             elif i in answer:
                 answer.remove(i)
         return answer
