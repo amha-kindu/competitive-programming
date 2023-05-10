@@ -9,6 +9,7 @@ class Solution:
         def dfs(node, visited=set(), path=[]):
             if hasApple[node]:
                 self.visited_edges.update(path)
+                path = []
 
             visited.add(node)
             for neighbor in graph[node]:
