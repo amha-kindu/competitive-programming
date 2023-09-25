@@ -8,13 +8,14 @@ class Solution:
                 return 1
             else:
                 return float('inf')
-        # Copy
+            
+        # Copy if not copied before
         if screen != clipboard:
             choice2 = self.minSteps(n, screen, screen) + 1
         else:
             choice2 = float('inf')
         
-        # Paste
+        # Paste from clipboard to the screen
         choice1 = self.minSteps(n, screen+clipboard, clipboard) + 1
 
 
